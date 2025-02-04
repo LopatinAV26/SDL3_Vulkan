@@ -1,0 +1,6 @@
+.cache/
+.vs/
+bin/
+build/
+out/
+CMakeSettings.json
