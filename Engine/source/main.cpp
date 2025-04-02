@@ -6,7 +6,7 @@ int main(int argc, char* argv[])
 {
 	atexit(SDL_Quit);
 
-	std::unique_ptr<VulkanEngine>engine = std::make_unique<VulkanEngine>();
+	auto engine = std::make_unique<VulkanEngine>();
 
 	//VulkanEngine engine;
 
