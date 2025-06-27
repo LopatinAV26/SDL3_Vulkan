@@ -16,7 +16,6 @@ find_package(SDL3 CONFIG REQUIRED)
 find_package(Vulkan REQUIRED)
 find_package(glslang CONFIG REQUIRED)
 find_package(VulkanMemoryAllocator CONFIG REQUIRED)
-find_package(fmt CONFIG REQUIRED)
 find_package(glm CONFIG REQUIRED)
 #find_package(fastgltf CONFIG REQUIRED)
 
@@ -27,7 +26,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE SDL3::SDL3
                                                glslang::glslang-default-resource-limits
                                                glslang::SPIRV glslang::SPVRemapper
                                                GPUOpen::VulkanMemoryAllocator
-                                               fmt::fmt
                                                glm::glm
                                                )   # If using satelite libraries, SDL must be the last item in the list
 

@@ -40,7 +40,6 @@ add_subdirectory(fastgltf)
 #add_library(glm INTERFACE)
 #add_library(vma INTERFACE)
 
-#add_subdirectory(fmt EXCLUDE_FROM_ALL)
 #add_subdirectory(SDL EXCLUDE_FROM_ALL)
 
 #both vma and glm and header only libs so we only need the include path

@@ -366,11 +366,6 @@ void VulkanEngine::immediate_submit(std::function<void(VkCommandBuffer cmd)> &&f
 
 std::string VulkanEngine::getResourcePath(const std::string &subDir)
 {
-#ifdef _WIN32
-	const char PATH_SEP = '/';
-#else
-	const char PATH_SEP = '/';
-#endif
 	static std::string baseRes;
 	if (baseRes.empty())
 	{
@@ -389,7 +384,7 @@ std::string VulkanEngine::getResourcePath(const std::string &subDir)
 		size_t pos = baseRes.rfind("bin");
 		baseRes = baseRes.substr(0, pos);
 	}
-	return subDir.empty() ? baseRes : baseRes + subDir + PATH_SEP;
+	return subDir.empty() ? baseRes : baseRes + subDir + "/";
 }
 
 void VulkanEngine::rebuild_swapchain()
@@ -593,7 +588,7 @@ void VulkanEngine::init_commands()
 
 	VK_CHECK(vkAllocateCommandBuffers(_device, &cmdAllocInfo, &_immCommandBuffer));
 
-	_mainDeletionQueue.push_function([=]()
+	_mainDeletionQueue.push_function([this]()
 									 { vkDestroyCommandPool(_device, _immCommandPool, nullptr); });
 
 	//< imm_cmd
@@ -956,8 +951,6 @@ void VulkanEngine::init_imgui()
 	init_info.MSAASamples = VK_SAMPLE_COUNT_1_BIT;
 
 	ImGui_ImplVulkan_Init(&init_info);
-
-	ImGui_ImplVulkan_CreateFontsTexture();
 
 	// sdd the destroy the imgui created structures
 	_mainDeletionQueue.push_function([=]()
