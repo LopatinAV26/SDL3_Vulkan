@@ -714,11 +714,11 @@ void VulkanEngine::init_background_pipelines()
 
 	VkShaderModule gradientShader;
 	if (!vkutil::load_shader_module((baseResourcesPath + "Shaders/gradient_color.comp.spv").c_str(), _device, &gradientShader))
-		fmt::print("Error when building the compute shader \n");
+		std::println("Error when building the compute shader");
 
 	VkShaderModule skyShader;
 	if (!vkutil::load_shader_module((baseResourcesPath + "Shaders/sky.comp.spv").c_str(), _device, &skyShader))
-		fmt::print("Error when building the compute shader \n");
+		std::print("Error when building the compute shader");
 
 	VkPipelineShaderStageCreateInfo stageInfo{};
 	stageInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
@@ -774,21 +774,21 @@ void VulkanEngine::init_triangle_pipeline()
 	VkShaderModule triangleFragShader;
 	if (!vkutil::load_shader_module((baseResourcesPath + "Shaders/colored_triangle.frag.spv").c_str(), _device, &triangleFragShader))
 	{
-		fmt::print("Error when building the triangle fragment shader module\n");
+		std::println("Error when building the triangle fragment shader module");
 	}
 	else
 	{
-		fmt::print("Triangle fragment shader succesfully loaded\n");
+		std::println("Triangle fragment shader succesfully loaded");
 	}
 
 	VkShaderModule triangleVertexShader;
 	if (!vkutil::load_shader_module((baseResourcesPath + "Shaders/colored_triangle.vert.spv").c_str(), _device, &triangleVertexShader))
 	{
-		fmt::print("Error when building the triangle vertex shader module\n");
+		std::println("Error when building the triangle vertex shader module");
 	}
 	else
 	{
-		fmt::print("Triangle vertex shader succesfully loaded\n");
+		std::println("Triangle vertex shader succesfully loaded");
 	}
 
 	// build the pipeline layout that controls the inputs/outputs of the shader

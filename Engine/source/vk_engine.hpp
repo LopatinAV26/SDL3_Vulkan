@@ -70,7 +70,7 @@ public:
 	bool _isInitialized{ false };
 	int _frameNumber{};
 	bool stop_rendering{ false };
-	VkExtent2D _windowExtent{ 1920, 1080 };
+	VkExtent2D _windowExtent{ 1366, 768 };
 
 	struct SDL_Window* _window{};
 

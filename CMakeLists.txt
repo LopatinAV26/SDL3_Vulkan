@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.29.0)
+cmake_minimum_required(VERSION 4.00.0)
 project(SDL3_Vulkan VERSION 0.1.0 LANGUAGES CXX)
 
 # set the output directory for built objects.
@@ -13,6 +13,7 @@ add_compile_options(-Wall) #-fsanitize=address
 
 add_subdirectory(Engine)
 add_subdirectory(Third_party)
+
 
 find_program(GLSL_VALIDATOR glslangValidator HINTS /usr/bin /usr/local/bin $ENV{VULKAN_SDK}/Bin/ $ENV{VULKAN_SDK}/Bin32/)
 
